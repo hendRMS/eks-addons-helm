@@ -27,6 +27,7 @@ options:
   alsoLogToStdErr:
   logBacktraceAt:
   logDir:
+  target: deployment
   #  --v=0: log level for V logs
   logLevel:
   # Defaulting to true limits use of ephemeral storage
