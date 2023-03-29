@@ -89,7 +89,8 @@ clusterAutoscaler:
   enable: false
   serviceAccountName:
 
-corednsAutoscaler:
+#corednsAutoscaler:
+cluster-proportional-autoscaler:
   enable: false
   serviceAccountName:
 
