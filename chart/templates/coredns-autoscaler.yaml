@@ -1,0 +1,31 @@
+{{- if and (.Values.corednsAutoscaler) (.Values.corednsAutoscaler.enable) -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: coredns-autoscaler
+  namespace: {{ .Values.argoNamespace | default "argocd" }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.argoProject | default "default" }}
+  source:
+    repoURL: {{ .Values.repoUrl }}
+    path: add-ons/coredns-autoscaler
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      values: |
+        coredns-autoscaler:
+        {{- toYaml .Values.corednsAutoscaler | nindent 10 }}
+  destination:
+    server: {{ .Values.destinationServer | default "https://kubernetes.default.svc" }}
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end -}}
