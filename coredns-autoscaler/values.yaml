@@ -27,7 +27,6 @@ options:
   alsoLogToStdErr:
   logBacktraceAt:
   logDir:
-  target: deployment
   #  --v=0: log level for V logs
   logLevel:
   # Defaulting to true limits use of ephemeral storage
@@ -39,7 +38,7 @@ options:
   #  label2: value2
   pollPeriodSeconds:
   stdErrThreshold:
-  target:
+  target: deployment
   vmodule:
 podAnnotations: {}
 # Target to scale. In format: deployment/*, replicationcontroller/* or replicaset/* (not case sensitive).
