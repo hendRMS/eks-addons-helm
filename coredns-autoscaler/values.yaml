@@ -38,7 +38,7 @@ options:
   #  label2: value2
   pollPeriodSeconds:
   stdErrThreshold:
-  target: deployment
+  target: "deployment/"
   vmodule:
 podAnnotations: {}
 # Target to scale. In format: deployment/*, replicationcontroller/* or replicaset/* (not case sensitive).
