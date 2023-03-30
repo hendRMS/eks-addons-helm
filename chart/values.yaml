@@ -78,7 +78,7 @@ argoProject: ''
 certManager:
   enable: false
   createNamespace: true
-  serviceAccountName:
+  serviceAccountName: false
 
 # Cert Manager CSI Driver Values
 #certManagerCsiDriver:

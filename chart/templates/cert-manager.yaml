@@ -16,9 +16,6 @@ spec:
       values: |
         cert-manager:
         {{- toYaml .Values.certManager | nindent 10 }}
-      parameters:
-      - name: cert-manager.serviceAccount.name
-        value: {{ .Values.certManager.serviceAccountName }}
   destination:
     server: {{ .Values.destinationServer | default "https://kubernetes.default.svc" }}
     namespace: cert-manager
